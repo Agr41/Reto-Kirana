@@ -1,0 +1,25 @@
+<p>Total Personas: {{totalNombres}}</p>
+<p>Valores Duplicados: {{duplicados}}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Correo Electrónico</th>
+      <th>Teléfono</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each datos}}
+  <tr >
+    <td {{#if this.nombreDuplicado}}class="duplicado"{{/if}} >{{this.Nombre}}</td>
+    <td {{#if this.correoDuplicado}}class="duplicado {{#unless this.correoValido}}invalido{{/unless}}"{{else}}{{#unless this.correoValido}}class="invalido"{{/unless}}{{/if}}>{{this.Correo}}</td>
+
+    <td {{#if this.telefonoDuplicado}}class="duplicado"{{/if}} {{#if this.telefonoInvalido}}class="invalido"{{/if}}>{{this.Telefono}}</td>
+
+
+  </tr>
+{{/each}}
+
+  </tbody>
+</table>
